@@ -1,0 +1,7 @@
+mutation Login($options: LoginInput!) {
+  login(options: $options) {
+    user {
+      ...RegularUser
+    }
+  }
+}
