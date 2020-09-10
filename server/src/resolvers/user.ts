@@ -17,7 +17,7 @@ import { COOKIE_NAME, FORGET_PASSWORD_PREFIX } from "../constants";
 import { validateRegister } from "../utils/validateRegister";
 import { v4 } from "uuid";
 import validator from "validator";
-// import { sendEmail } from "../utils/sendEmail";
+import { sendEmail } from "../utils/sendEmail";
 
 @Resolver()
 export class UserResolver {
@@ -123,11 +123,11 @@ export class UserResolver {
 
     console.log(`<${FORGET_PASSWORD_PREFIX}${token}>`);
 
-    // await sendEmail(
-    //   email,
-    //   "Reset password",
-    //   `Reset password <a href="http://localhost:3000/change-password/${token}">here</a>.`
-    // );
+    await sendEmail(
+      email,
+      "Reset password",
+      `Reset password <a href="http://localhost:3000/change-password/${token}">here</a>.`
+    );
 
     return true;
   }
